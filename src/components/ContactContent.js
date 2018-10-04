@@ -1,11 +1,43 @@
 import React, { Component } from 'react';
-
+import data from './../data.json';
 class ContactContent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            demoJson: []
+        }
+    }
     render() {
+        console.log(this.props.id.match.params.id);
+        // data.map((value, key) => {
+        //     if (data.id == this.props.id.match.params.id) {
+        //         return (
+        //             <div>
+        //                 <p>{value.title}</p>
+        //                 <p>{value.shortDesc}</p>
+        //             </div>
+        //         )
+        //     }
+        // })
+
         return (
             <div className="container">
+
                 <div className="row">
                     <div className="col-lg-8 col-md-10 mx-auto">
+                        {
+                            data.map((value, key) => {
+
+                                if (value.id.toString() == this.props.id.match.params.id) {
+                                    return (
+                                        <div key={key}>
+                                            <p>{value.Title}</p>
+                                            <p>{value.ShortDesc}</p>
+                                        </div>
+                                    )
+                                }
+                            })
+                        }
                         <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
                         {/* Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. */}
                         {/* WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! */}

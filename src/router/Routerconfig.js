@@ -14,10 +14,10 @@ class Routerconfig extends Component {
                             <HomeContent />
                         </div>
                     } />
-                    <Route exact path="/contact" render={() =>
+                    <Route exact path="/:slug.:id" render={(id) =>
                         <div>
                             <PageContactHeader />
-                            <ContactContent />
+                            <ContactContent id={id}/>
                         </div>
                     } />
                 </div>
